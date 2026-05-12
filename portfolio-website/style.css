@@ -1,0 +1,122 @@
+/* Modern Nude/Light & Purple/Dark theme with glassmorphism */
+
+/* CSS Variables for themes */
+:root {
+  /* Light / Nude theme */
+  --bg-primary: linear-gradient(to bottom right, #F8F4F0 0%, #EDE4E0 50%, #DCD6D2 100%);
+  --bg-secondary: rgba(248, 244, 240, 0.9);
+  --text-primary: #2d1b14;
+  --text-secondary: #4a3728;
+  --glass-bg: rgba(255, 255, 255, 0.8);
+  --glass-border: rgba(0, 0, 0, 0.08);
+  --purple-tint: rgba(147, 51, 234, 0.1);
+}
+
+.dark {
+  /* Dark / Purple theme */
+  --bg-primary: linear-gradient(to bottom right, #1a1a2e 0%, #16213e 50%, #0f0f23 100%);
+  --bg-secondary: rgba(26, 26, 46, 0.9);
+  --text-primary: #f8f8f2;
+  --text-secondary: #bdc3c7;
+  --glass-bg: rgba(35, 35, 55, 0.75);
+  --glass-border: rgba(120, 119, 198, 0.3);
+  --purple-tint: rgba(147, 51, 234, 0.2);
+}
+
+/* Smooth animations */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* Override Tailwind dark text for light readability */
+.text-slate-950 {
+  color: var(--text-primary) !important;
+}
+
+/* Glassmorphism cards - Theme adaptive */
+.glass {
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.15), 0 10px 10px -5px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+/* Theme toggle button */
+#theme-toggle {
+  color: var(--text-primary);
+  transition: all 0.3s ease;
+}
+
+#theme-toggle:hover {
+  transform: scale(1.1);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+/* Custom scrollbar - Theme adaptive */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #D2B48C, #C19A6B);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(to bottom, #B8860B, #A67B5B);
+}
+
+.dark ::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #667eea, #764ba2);
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(to bottom, #5a67d8, #6b46c1);
+}
+
+/* Responsive improvements */
+@media (max-width: 768px) {
+  nav ul {
+    display: none;
+  }
+  
+  .hero h1 {
+    font-size: 3rem !important;
+  }
+}
+
+/* Intersection Observer for scroll animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  opacity: 0;
+  animation: fadeInUp 0.8s ease-out forwards;
+}
