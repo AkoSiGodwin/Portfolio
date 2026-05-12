@@ -1,26 +1,35 @@
-/* Modern Nude/Light & Purple/Dark theme with glassmorphism */
+/* Theme overhaul: Deep Midnight (dark) + True White (light) with smooth transitions */
 
-/* CSS Variables for themes */
 :root {
-  /* Light / Nude theme */
-  --bg-primary: linear-gradient(to bottom right, #F8F4F0 0%, #EDE4E0 50%, #DCD6D2 100%);
-  --bg-secondary: rgba(248, 244, 240, 0.9);
-  --text-primary: #2d1b14;
-  --text-secondary: #4a3728;
-  --glass-bg: rgba(255, 255, 255, 0.8);
-  --glass-border: rgba(0, 0, 0, 0.08);
-  --purple-tint: rgba(147, 51, 234, 0.1);
+  --bg: #ffffff;
+  --text: #1a1a1a;
+  --muted: rgba(26, 26, 26, 0.72);
+
+  --glass-bg: rgba(255, 255, 255, 0.72);
+  --glass-border: rgba(17, 17, 17, 0.10);
+  --glass-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.12), 0 10px 10px -5px rgba(0, 0, 0, 0.08);
+
+  --nav-bg: rgba(255, 255, 255, 0.62);
+  --nav-border: rgba(17, 17, 17, 0.10);
+  --btn-text: #1a1a1a;
+
+  --hero-text: #0a0a0a;
 }
 
-.dark {
-  /* Dark / Purple theme */
-  --bg-primary: linear-gradient(to bottom right, #1a1a2e 0%, #16213e 50%, #0f0f23 100%);
-  --bg-secondary: rgba(26, 26, 46, 0.9);
-  --text-primary: #f8f8f2;
-  --text-secondary: #bdc3c7;
-  --glass-bg: rgba(35, 35, 55, 0.75);
-  --glass-border: rgba(120, 119, 198, 0.3);
-  --purple-tint: rgba(147, 51, 234, 0.2);
+body.dark {
+  --bg: #0a0a0a;
+  --text: rgba(248, 250, 252, 0.96);
+  --muted: rgba(248, 250, 252, 0.68);
+
+  --glass-bg: rgba(20, 20, 25, 0.56);
+  --glass-border: rgba(120, 119, 198, 0.28);
+  --glass-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.35), 0 10px 10px -5px rgba(0, 0, 0, 0.18);
+
+  --nav-bg: rgba(10, 10, 10, 0.52);
+  --nav-border: rgba(120, 119, 198, 0.20);
+  --btn-text: rgba(248, 250, 252, 0.96);
+
+  --hero-text: rgba(248, 250, 252, 0.96);
 }
 
 /* Smooth animations */
@@ -33,14 +42,14 @@ html {
 }
 
 body {
-  background: var(--bg-primary);
-  color: var(--text-primary);
+  background: var(--bg);
+  color: var(--text);
   transition: background 0.3s ease, color 0.3s ease;
 }
 
-/* Override Tailwind dark text for light readability */
+/* Ensure your hardcoded “dark text” class becomes theme-aware */
 .text-slate-950 {
-  color: var(--text-primary) !important;
+  color: var(--text) !important;
 }
 
 /* Glassmorphism cards - Theme adaptive */
@@ -48,8 +57,78 @@ body {
   background: var(--glass-bg);
   backdrop-filter: blur(20px);
   border: 1px solid var(--glass-border);
-  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.15), 0 10px 10px -5px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--glass-shadow);
   transition: all 0.3s ease;
+}
+
+/* ---------------------------
+   Tailwind color overrides
+   (Your HTML uses many hardcoded Tailwind colors; these keep theme toggle accurate)
+---------------------------- */
+
+/* Base background sections */
+#about,
+#projects,
+#experience,
+#contact {
+  background: rgba(255, 255, 255, 0.06);
+}
+
+/* cards that use bg-black/20 */
+body:not(.dark) .bg-black\/20,
+body:not(.dark) .bg-black\/25,
+body:not(.dark) .bg-black\/30 {
+  background: rgba(0, 0, 0, 0.04);
+}
+
+/* default glass for bg-white/10 and bg-white/5 */
+body:not(.dark) .bg-white\/10,
+body:not(.dark) .bg-white\/20,
+body:not(.dark) .bg-white\/5 {
+  background: rgba(255, 255, 255, 0.65) !important;
+}
+
+body.dark .bg-white\/10,
+body.dark .bg-white\/20,
+body.dark .bg-white\/5 {
+  background: rgba(255, 255, 255, 0.08) !important;
+}
+
+/* hardcoded text-slate-950 -> make it theme-aware */
+.text-slate-950 {
+  color: var(--text) !important;
+}
+
+/* common faded text */
+body.dark .opacity-75,
+body.dark .opacity-90 {
+  opacity: 0.95;
+}
+
+body:not(.dark) .opacity-75,
+body:not(.dark) .opacity-90 {
+  opacity: 1;
+}
+
+/* nav tint if any inline styles were added elsewhere */
+nav {
+  background: var(--nav-bg) !important;
+  border-bottom: 1px solid transparent;
+}
+
+/* Ensure nav-glass uses the same transition */
+nav.glass,
+nav.nav-glass {
+  border: 1px solid var(--nav-border) !important;
+}
+
+/* Make hero background safe in light mode */
+body:not(.dark) #hero {
+  background: #ffffff;
+}
+
+body.dark #hero {
+  background: #0a0a0a;
 }
 
 /* Theme toggle button */
@@ -60,7 +139,7 @@ body {
 
 #theme-toggle:hover {
   transform: scale(1.1);
-  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
 /* Custom scrollbar - Theme adaptive */
@@ -98,7 +177,7 @@ body {
   nav ul {
     display: none;
   }
-  
+
   .hero h1 {
     font-size: 3rem !important;
   }
@@ -120,3 +199,50 @@ body {
   opacity: 0;
   animation: fadeInUp 0.8s ease-out forwards;
 }
+
+/* Gradient glow utilities */
+/* Use with: <div class="glow-card" ...> and ensure it contains the regular glass content */
+.glow-card {
+  position: relative;
+  isolation: isolate;
+  border-radius: 1.5rem;
+}
+
+.glow-card::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: inherit;
+  background: conic-gradient(
+    from 180deg at 50% 50%,
+    rgba(96, 165, 250, 0.9),
+    rgba(167, 139, 250, 0.9),
+    rgba(244, 114, 182, 0.9),
+    rgba(96, 165, 250, 0.9)
+  );
+  opacity: 0;
+  filter: blur(14px);
+  transition: opacity 260ms ease;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.glow-card:hover::before {
+  opacity: 1;
+}
+
+/* Optional spinning glow for hero */
+@keyframes glow-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.glow-card[data-glow='hero']::before {
+  opacity: 0.9;
+  animation: glow-spin 4s linear infinite;
+}
+

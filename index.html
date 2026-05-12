@@ -17,9 +17,17 @@
             }
         }
     </script>
+
+    <!-- Framer Motion (UMD) -->
+    <script src="https://unpkg.com/framer-motion@10.18.0/dist/framer-motion.umd.js"></script>
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+
     <link rel="stylesheet" href="style.css">
 </head>
-<body class="bg-gradient-to-br from-gray-900 via-purple-900/25 to-gray-900 text-slate-950 min-h-screen font-sans">
+<body class="min-h-screen font-sans app-body">
+
 
     <!-- Smooth scrolling script -->
     <script>
@@ -27,36 +35,48 @@
     </script>
 
     <!-- Navigation -->
-    <nav class="fixed top-0 w-full bg-black/30 backdrop-blur-md z-50 py-4 glass">
+    <nav class="fixed top-0 w-full backdrop-blur-md z-50 py-4 glass">
         <div class="container mx-auto px-6 flex justify-between items-center">
-            <h1 class="text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-slate-950">GL</h1>
-            <ul class="flex space-x-6">
-                <li><a href="#hero" class="text-slate-950 hover:text-blue-400 transition">Home</a></li>
-                <li><a href="#about" class="text-slate-950 hover:text-blue-400 transition">About</a></li>
-                <li><a href="#skills" class="text-slate-950 hover:text-blue-400 transition">Skills</a></li>
-                <li><a href="#projects" class="text-slate-950 hover:text-blue-400 transition">Projects</a></li>
-                <li><a href="#experience" class="text-slate-950 hover:text-blue-400 transition">Experience</a></li>
-                <li><a href="#contact" class="text-slate-950 hover:text-blue-400 transition">Contact</a></li>
+            <h1 class="text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">GL</h1>
+            <ul class="hidden md:flex space-x-6">
+                <li><a href="#hero" class="nav-link">Home</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#skills" class="nav-link">Skills</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#experience" class="nav-link">Experience</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
             </ul>
-            <button id="theme-toggle" class="ml-6 p-2 rounded-full glass hover:scale-110 transition-all text-slate-950 text-xl" title="Toggle theme">🌞</button>
+
+            <button id="theme-toggle" class="ml-6 p-2 rounded-full glass hover:scale-110 transition-all text-xl" title="Toggle theme">
+                🌞
+            </button>
         </div>
     </nav>
 
     <!-- Hero Section -->
     <section id="hero" class="min-h-screen flex items-center justify-center pt-20">
         <div class="container mx-auto px-6 text-center">
-<div class="glass rounded-3xl p-12 max-w-4xl mx-auto">
-</xai:function_call > 
+            <div class="relative glass rounded-3xl p-12 max-w-4xl mx-auto overflow-hidden" data-glow="hero">
+                <!-- Animated gradient glow border -->
+                <div class="pointer-events-none absolute inset-0 rounded-3xl p-[1px]">
+                    <div class="absolute inset-0 rounded-3xl bg-[conic-gradient(from_180deg_at_50%_50%,_#60a5fa,_#a78bfa,_#f472b6,_#60a5fa)] opacity-70 blur" style="filter:saturate(1.2);" data-glow-border="1"></div>
+                    <div class="absolute inset-0 rounded-3xl bg-[linear-gradient(#0a0a0a,#0a0a0a)] opacity-85"></div>
+                </div>
 
-<xai:function_call name="edit_file">
-<parameter name="path">
-                <h1 class="text-6xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 bg-clip-text text-slate-950 drop-shadow-2xl">Godwin Lee</h1>
-                <p class="text-2xl md:text-3xl mb-8 opacity-90">BS Computer Science Graduate</p>
-                <p class="text-xl mb-12 opacity-75 max-w-2xl mx-auto leading-relaxed">An Android & Web Developer and BS Computer Science Graduate specializing in intelligent, gamified solutions. From optimizing systems at SSS to building AI-assisted applications, I bridge the gap between robust software design and real-world technical challenges.</p>
+                <div class="relative z-10">
+
+
+                <h1 class="text-6xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 bg-clip-text text-slate-950 drop-shadow-2xl">Innovative Computer Science Graduate & Android Developer</h1>
+                <p class="text-2xl md:text-3xl mb-8 opacity-90">Generative AI integration using the Gemini API</p>
+                <p class="text-xl mb-12 opacity-75 max-w-2xl mx-auto leading-relaxed">
+                    I build high-performance Android experiences and intelligent apps—leveraging Generative AI and real-time learning logic to deliver engaging, production-ready features.
+                </p>
                 <a href="#projects" class="bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 text-white px-12 py-4 rounded-full text-xl font-semibold transition-all duration-300 shadow-xl hover:shadow-2xl hover:-translate-y-1">View Projects →</a>
             </div>
         </div>
     </section>
+
+
 
     <!-- About Section -->
     <section id="about" class="py-32 bg-black/20">
@@ -72,50 +92,57 @@
     <!-- Tech Stack -->
     <section id="skills" class="py-32">
         <div class="container mx-auto px-6">  
-            <h2 class="text-5xl font-bold text-center mb-20 bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">Technical skills</h2>
-            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 xl:grid-cols-10 gap-8 max-w-7xl mx-auto">
-                <div class="bg-white/10 backdrop-blur-xl rounded-2xl p-8 text-center border border-white/20 hover:bg-white/20 transition-all duration-300 hover:scale-105">
-                    <div class="text-4xl mb-4">☕</div>
+<h2 class="text-5xl font-bold text-center mb-20 bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">Tech Stack</h2>
+
+            <!-- Academic Excellence -->
+            <div class="max-w-5xl mx-auto mb-12">
+                <div class="relative glow-card glass rounded-3xl p-6 sm:p-8 overflow-hidden">
+                    <div class="pointer-events-none absolute inset-0 rounded-3xl p-[1px]">
+                        <div class="absolute inset-0 rounded-3xl bg-[conic-gradient(from_180deg_at_50%_50%,_#60a5fa,_#a78bfa,_#f472b6,_#60a5fa)] opacity-60 blur"></div>
+                    </div>
+                    <div class="relative z-10 flex flex-col sm:flex-row gap-6 sm:items-center sm:justify-between">
+                        <div>
+                            <h3 class="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 bg-clip-text text-transparent">Academic Excellence</h3>
+                            <p class="text-slate-300/90 mt-2">Recognition for outstanding academic performance and creative game development.</p>
+                        </div>
+                        <div class="flex flex-col sm:flex-row gap-3">
+                            <div class="rounded-2xl border border-white/20 bg-white/5 backdrop-blur-xl px-5 py-3">
+                                <div class="text-sm text-blue-300 font-semibold">🏆 Multi-Year Dean's Lister</div>
+                            </div>
+                            <div class="rounded-2xl border border-white/20 bg-white/5 backdrop-blur-xl px-5 py-3">
+                                <div class="text-sm text-purple-300 font-semibold">🎮 Best in Game Design Development</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-6 gap-8 max-w-7xl mx-auto">
+                <div class="bg-white/10 backdrop-blur-xl rounded-2xl p-8 text-center border border-white/20 hover:bg-white/20 transition-all duration-300 hover:scale-105 glass-card">
+                    <div data-lucide="code" class="mx-auto text-blue-400" style="width: 42px; height: 42px;"></div>
                     <h3 class="text-xl font-semibold mb-2">Java</h3>
                 </div>
-                <div class="bg-white/10 backdrop-blur-xl rounded-2xl p-8 text-center border border-white/20 hover:bg-white/20 transition-all duration-300 hover:scale-105">
-                    <div class="text-4xl mb-4">🐍</div>
+                <div class="bg-white/10 backdrop-blur-xl rounded-2xl p-8 text-center border border-white/20 hover:bg-white/20 transition-all duration-300 hover:scale-105 glass-card">
+                    <div data-lucide="smartphone" class="mx-auto text-emerald-400" style="width: 42px; height: 42px;"></div>
                     <h3 class="text-xl font-semibold mb-2">Python</h3>
                 </div>
-                <div class="bg-white/10 backdrop-blur-xl rounded-2xl p-8 text-center border border-white/20 hover:bg-white/20 transition-all duration-300 hover:scale-105">
-                    <div class="text-4xl mb-4">🤖</div>
-                    <h3 class="text-xl font-semibold mb-2">Android</h3>
-                </div>
-                <div class="bg-white/10 backdrop-blur-xl rounded-2xl p-8 text-center border border-white/20 hover:bg-white/20 transition-all duration-300 hover:scale-105">
-                    <div class="text-4xl mb-4">🗄️</div>
-                    <h3 class="text-xl font-semibold mb-2">SQL</h3>
-                </div>
-                <div class="bg-white/10 backdrop-blur-xl rounded-2xl p-8 text-center border border-white/20 hover:bg-white/20 transition-all duration-300 hover:scale-105">
-                    <div class="text-4xl mb-4">⚡</div>
-                    <h3 class="text-xl font-semibold mb-2">Git</h3>
-                </div>
-
-                <!-- New tech stack items -->
-                <div class="bg-white/10 backdrop-blur-xl rounded-2xl p-8 text-center border border-white/20 hover:bg-white/20 transition-all duration-300 hover:scale-105">
-                    <div class="text-4xl mb-4">⚡</div>
-                    <h3 class="text-xl font-semibold mb-2">JavaScript</h3>
-                </div>
-                <div class="bg-white/10 backdrop-blur-xl rounded-2xl p-8 text-center border border-white/20 hover:bg-white/20 transition-all duration-300 hover:scale-105">
-                    <div class="text-4xl mb-4">🐘</div>
-                    <h3 class="text-xl font-semibold mb-2">PHP</h3>
-                </div>
-                <div class="bg-white/10 backdrop-blur-xl rounded-2xl p-8 text-center border border-white/20 hover:bg-white/20 transition-all duration-300 hover:scale-105">
-                    <div class="text-4xl mb-4">➕</div>
+                <div class="bg-white/10 backdrop-blur-xl rounded-2xl p-8 text-center border border-white/20 hover:bg-white/20 transition-all duration-300 hover:scale-105 glass-card">
+                    <div data-lucide="code-square" class="mx-auto text-purple-400" style="width: 42px; height: 42px;"></div>
                     <h3 class="text-xl font-semibold mb-2">C++</h3>
                 </div>
-                <div class="bg-white/10 backdrop-blur-xl rounded-2xl p-8 text-center border border-white/20 hover:bg-white/20 transition-all duration-300 hover:scale-105">
-                    <div class="text-4xl mb-4">📄</div>
-                    <h3 class="text-xl font-semibold mb-2">XML</h3>
+                <div class="bg-white/10 backdrop-blur-xl rounded-2xl p-8 text-center border border-white/20 hover:bg-white/20 transition-all duration-300 hover:scale-105 glass-card">
+                    <div data-lucide="database" class="mx-auto text-sky-400" style="width: 42px; height: 42px;"></div>
+                    <h3 class="text-xl font-semibold mb-2">SQL</h3>
                 </div>
-                <div class="bg-white/10 backdrop-blur-xl rounded-2xl p-8 text-center border border-white/20 hover:bg-white/20 transition-all duration-300 hover:scale-105">
-                    <div class="text-4xl mb-4">🐬</div>
-                    <h3 class="text-xl font-semibold mb-2">MySQL</h3>
+                <div class="bg-white/10 backdrop-blur-xl rounded-2xl p-8 text-center border border-white/20 hover:bg-white/20 transition-all duration-300 hover:scale-105 glass-card">
+                    <div data-lucide="command" class="mx-auto text-yellow-300" style="width: 42px; height: 42px;"></div>
+                    <h3 class="text-xl font-semibold mb-2">JavaScript</h3>
                 </div>
+                <div class="bg-white/10 backdrop-blur-xl rounded-2xl p-8 text-center border border-white/20 hover:bg-white/20 transition-all duration-300 hover:scale-105 glass-card">
+                    <div data-lucide="layout-grid" class="mx-auto text-pink-400" style="width: 42px; height: 42px;"></div>
+                    <h3 class="text-xl font-semibold mb-2">Android Studio</h3>
+                </div>
+
             </div>
         </div>
     </section>
@@ -126,34 +153,37 @@
             <h2 class="text-5xl font-bold text-center mb-20 bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">Projects</h2>
 <div class="max-w-6xl mx-auto">
     <!-- Hero Project Showcase -->
-    <div class="bg-white/10 backdrop-blur-xl rounded-3xl p-12 lg:p-20 border border-white/20 shadow-2xl hover:bg-white/20 transition-all duration-500 hover:scale-[1.02] group relative overflow-hidden">
-        <!-- Glowing border effect -->
-        <div class="absolute inset-0 rounded-3xl bg-gradient-to-r from-blue-500/20 via-purple-500/20 to-pink-500/20 p-1 group-hover:opacity-100 opacity-70 transition-all duration-700 animate-pulse"></div>
-        
+    <div class="relative glow-card bg-white/10 backdrop-blur-xl rounded-3xl p-12 lg:p-20 border border-white/10 shadow-2xl group overflow-hidden">
+        <!-- Animated gradient glow border (hover/motion via CSS) -->
+        <div class="pointer-events-none absolute inset-0 rounded-3xl p-[1px]">
+            <div class="absolute inset-0 rounded-3xl bg-[conic-gradient(from_180deg_at_50%_50%,_#60a5fa,_#a78bfa,_#f472b6,_#60a5fa)] opacity-60 blur" data-glow-border="1"></div>
+            <div class="absolute inset-0 rounded-3xl bg-gradient-to-b from-white/5 to-transparent opacity-70"></div>
+        </div>
+
         <div class="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
             <!-- Mockup Image -->
             <div class="order-2 lg:order-1">
-                <div class="relative bg-gradient-to-br from-gray-800/50 to-gray-900/50 rounded-2xl p-8 shadow-2xl border-4 border-blue-500/50 animate-pulse group-hover:ring-8 ring-blue-500/30 transition-all duration-500 mx-auto max-w-md">
-                    <div class="bg-gradient-to-br from-blue-500/10 to-purple-500/10 rounded-xl p-6 h-64 md:h-80 flex items-center justify-center shadow-[0_0_50px_rgba(59,130,246,0.3)]">
+                <div class="relative bg-gradient-to-br from-gray-800/50 to-gray-900/50 rounded-2xl p-8 shadow-2xl border border-blue-500/40 mx-auto max-w-md">
+                    <div class="bg-gradient-to-br from-blue-500/10 to-purple-500/10 rounded-xl p-6 h-64 md:h-80 flex items-center justify-center">
                         <div class="text-center">
-                            <div class="text-6xl mb-4">🎮</div>
-                            <p class="text-xl font-bold text-white drop-shadow-lg">Gamified Learning</p>
-                            <p class="text-blue-300 text-sm mt-2 animate-pulse">AI-Powered Thesis App</p>
+                            <div class="text-6xl mb-4">🧠</div>
+                            <p class="text-xl font-bold text-white drop-shadow-lg">MIND GLIMPSE</p>
+                            <p class="text-blue-300 text-sm mt-2">AI-powered gamified learning</p>
                         </div>
                     </div>
-                    <!-- Screen bezel effect -->
-                    <div class="absolute -inset-2 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-3xl blur-xl animate-pulse opacity-60"></div>
+                    <div class="absolute -inset-2 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-3xl blur-xl opacity-40"></div>
                 </div>
             </div>
             
             <!-- Content -->
             <div class="order-1 lg:order-2 text-center lg:text-left">
-                <h3 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 bg-clip-text text-transparent drop-shadow-2xl group-hover:scale-105 transition-transform duration-300">
-                    Gamified Learning App
+                <h3 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 bg-clip-text text-transparent drop-shadow-2xl">
+                    MIND GLIMPSE
                 </h3>
                 <p class="text-xl md:text-2xl mb-12 opacity-90 leading-relaxed max-w-2xl">
-                    Thesis project: Revolutionary mobile app combining gamification mechanics with AI-driven personalized learning assistance. Earn XP, level up, and track progress with intelligent recommendations.
+                    Thesis project: AI-powered gamified learning platform. Powered by the Java + Firebase stack with XP, level progression, and personalized assistance that keeps learners motivated.
                 </p>
+
                 
                 <!-- Key Features -->
                 <div class="mb-16">

@@ -1,6 +1,12 @@
 // Smooth scrolling enhancements and animations
 document.addEventListener('DOMContentLoaded', function() {
+    // Lucide icons
+    if (window.lucide) {
+        window.lucide.createIcons();
+    }
+
     // Theme toggle functionality
+
     function initTheme() {
         const savedTheme = localStorage.getItem('theme');
         const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
